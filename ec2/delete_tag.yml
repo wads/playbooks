@@ -1,0 +1,12 @@
+- name: delete tags from instance
+  hosts: localhost
+  vars_files:
+    - group_vars/production.yml
+  tasks:
+    - name: delete tag
+      ec2_tag:
+        region: "{{ region }}"
+        resource: "{{ resource_id }}"
+        state: absent
+        tags:
+          tag1: tag contents

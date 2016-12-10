@@ -1,0 +1,11 @@
+- name: delete security group
+  hosts: localhost
+  vars_files:
+    - group_vars/production.yml
+  tasks:
+  - name: delete web
+    ec2_group:
+      name: web
+      description: web security group
+      state: absent
+      region: "{{ region }}"

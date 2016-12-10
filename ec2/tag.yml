@@ -1,0 +1,12 @@
+- name: add tags to existing instance
+  hosts: localhost
+  vars_files:
+    - group_vars/production.yml
+  tasks:
+    - name: tag the server
+      ec2_tag:
+        region: "{{ region }}"
+        resource: "{{ resource_id }}"
+        tags:
+          tag1: tag contents
+          tag2: tag2 contents
